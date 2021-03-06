@@ -53,4 +53,20 @@ router.delete("/:id",async (req,res)=>{
     
 });
 
+router.put("/:id",async (req,res)=>{
+    try{
+        const data:ICategory = {
+            id: req.params.id,
+            name: req.body.name
+        };
+
+        const updatedItem = await op.update<ICategory>(data,DATA);
+        res.json(updatedItem);
+    }   
+    catch(err){
+        res.status(500).json({"message":err.message});
+    } 
+    
+});
+
 module.exports = router;

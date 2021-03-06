@@ -44,4 +44,17 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json({ "message": err.message });
     }
 });
+router.put("/:id", async (req, res) => {
+    try {
+        const data = {
+            id: req.params.id,
+            name: req.body.name
+        };
+        const updatedItem = await op.update(data, config_1.DATA);
+        res.json(updatedItem);
+    }
+    catch (err) {
+        res.status(500).json({ "message": err.message });
+    }
+});
 module.exports = router;
