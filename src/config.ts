@@ -1,2 +1,6 @@
 const PORT = 5500;
-export default PORT;
+const DATA = "./data.json";
+export {
+    PORT,
+    DATA
+};
