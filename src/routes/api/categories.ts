@@ -28,4 +28,17 @@ router.get("/:id",async (req,res)=>{
     
 });
 
+router.post("/",async (req,res)=>{
+    try{
+        const data:ICategory = req.body;
+        console.log(data);
+        const addedItem = await op.create<ICategory>(data,DATA);
+        res.json(addedItem);
+    }   
+    catch(err){
+        res.status(500).json({"message":err.message});
+    } 
+    
+});
+
 module.exports = router;

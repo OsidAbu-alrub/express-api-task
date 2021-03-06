@@ -23,4 +23,15 @@ router.get("/:id", async (req, res) => {
         res.status(400).json({ "message": err.message });
     }
 });
+router.post("/", async (req, res) => {
+    try {
+        const data = req.body;
+        console.log(data);
+        const addedItem = await op.create(data, config_1.DATA);
+        res.json(addedItem);
+    }
+    catch (err) {
+        res.status(500).json({ "message": err.message });
+    }
+});
 module.exports = router;
