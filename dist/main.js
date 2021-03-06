@@ -4,5 +4,7 @@ const express = require("express");
 const config_1 = require("./config");
 // import * as op from './operations/operations';
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use("/api/category", require("./routes/api/categories"));
 app.listen(config_1.PORT, () => console.log("Server Running"));
