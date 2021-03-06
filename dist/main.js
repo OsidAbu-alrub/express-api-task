@@ -7,4 +7,4 @@ app.get("/", (req, res) => {
     console.log("Hello From Console");
     res.send("Hello From Server");
 });
-app.listen(config_1.default, () => console.log("Server Running"));
+app.listen(config_1.PORT, () => console.log("Server Running"));

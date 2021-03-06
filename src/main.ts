@@ -1,5 +1,6 @@
 import * as express from "express";
-import PORT from './config';
+import {PORT,DATA} from './config';
+import * as op from './operations/operations';
 const app = express();
 
 app.get("/",(req,res)=>{
