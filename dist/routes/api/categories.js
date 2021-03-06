@@ -34,4 +34,14 @@ router.post("/", async (req, res) => {
         res.status(500).json({ "message": err.message });
     }
 });
+router.delete("/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        await op.remove(id, config_1.DATA);
+        res.json({ message: "item removed" });
+    }
+    catch (err) {
+        res.status(500).json({ "message": err.message });
+    }
+});
 module.exports = router;

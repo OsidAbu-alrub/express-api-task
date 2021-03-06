@@ -41,4 +41,16 @@ router.post("/",async (req,res)=>{
     
 });
 
+router.delete("/:id",async (req,res)=>{
+    try{
+        const id = req.params.id;
+        await op.remove<ICategory>(id,DATA);
+        res.json({message:"item removed"});
+    }   
+    catch(err){
+        res.status(500).json({"message":err.message});
+    } 
+    
+});
+
 module.exports = router;
